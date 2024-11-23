@@ -1,0 +1,421 @@
+picotron cartridge // www.picotron.net
+version 2
+
+:: gfx/
+:: gfx/0.gfx
+b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
+MS0yMyAwMzozMjowOSIscmV2aXNpb249OTM2XV1sejQAUwEAAGU0AADwHXtbMF09e2JtcD1weHUA
+QyAgIATwPifwCxclF-AIB2UH8AQnhSfwAweFB-AGDwAQBwUA8zEIJwUn8AsHBQfwCUcFN-AEJ3Un
+8AEXxRfQB-UBB7AHhQeFB6AHdReFB5AHJQdVB1UHJQeABxUHAAdFB0UHAAcVDgAzNSc1DgCdBQcg
+B4UHIAcFDADzBDAHZQcwBwUHkAdAB2UHQAeQBwAUAPMGAAfwAIfwvCxmbGFncz0wLHBhbl94CADP
+eT0wLHpvb209OX0s3QA8kWU3dQegB5UHdd0ANTU3Rd0ANyUHZd0ALyU33QCuJkUn3QA-VQc13QCu
+MAcVB98AAggADL4BCuEABg4AD74Bnj5lB6XdAA__AWtfEBAE8PAxAP----------------------
+-----------------------------------------xNQbT05fX0=
+:: gfx/.info.pod
+b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
+MS0yMyAwMzozMjowOSIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+:: map/
+:: map/0.map
+b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
+MS0yMyAwMzozMjowOSIscmV2aXNpb249OTA4XV1sejQAaAAAAFgQAADwCHt7Ym1wPXVzZXJkYXRh
+KCJpMTYiLDMyAwAvIjABAP--------------------vxCCIpLGhpZGRlbj1mYWxzZSxwYW5feD0w
+CADSeT0wLHRpbGVfaD0zMgoAEHcKAIB6b29tPTF9fQ==
+:: map/.info.pod
+b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
+MS0yMyAwMzozMjowOSIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+:: sfx/
+:: sfx/0.sfx
+b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ5Iixtb2RpZmllZD0iMjAyNC0x
+MS0yMyAwMzozMjowOSIscmV2aXNpb249OTA0XV1sejQAEgEAAMIJAADwJ3B4dQADKAAABAAED0AQ
+Ag4AAaABIAKgDgAPEAAN8MoBAgMEBQYHAA--kAgJCgsPDA8NDw4PDxAA8AANDxEPEg8TDxQPFQ8W
+DxcTAPEBDxgPGQ8aDxsPHA8dDx4PHxQA8QAgDyEPIg8jDyQPJQ8mDycUAPEAKA8pDyoPKw8sDy0P
+Lg8vFADxADAPMQ8yDzMPNA81DzYPNxQA-wU4DzkPOg87DzwPPQ8_Dz8AD--w-wEA6-8nWgEQBg8g
+EAEgASAB8AACEAIMEAEgDyEgATAPQPDDDygP--DGD-gKD-8PgA-3Dw0B8AkBEAYMMAD--7of-wEA
+zL-oD0AADUD--7DwcAoA--9kH-8BAP_ZUP----8g
+:: sfx/.info.pod
+b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
+MS0yMyAwMzozMjowOSIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+:: card.lua
+--[[pod_format="raw",created="2024-11-18 15:42:45",modified="2024-11-23 03:32:09",revision=1070]]
+include "constants.lua"
+include "math.lua"
+
+-- card width/height
+cw,ch = 30, 50
+
+-- card states
+card_free=0
+card_grabbed=1
+card_stacked=2
+
+-- card models
+card_mod_siren=1
+card_mod_stock=2
+card_mod_cyclo=3
+card_mod_plan=4
+card_mod_cmd=5
+
+function make_card(init_pos,model,size)
+	return {
+		-- members
+		pos=init_pos, 
+		state=card_free,
+		model=model,
+		size=size,
+		
+		-- methods
+		draw = card_draw,
+		intersect_point = card_intersect_point,
+		move = card_move,		
+		update = card_update,		
+		moveIntoStack = card_moveToStack,
+		is_free = function(self) return self.state == card_free end,
+		is_grabbed = function(self) return self.state == card_grabbed end,
+		is_stacked = function(self) return self.state == card_stacked end,
+	}
+end
+
+function card_draw(self)
+	local mod_colors = {9,12,29,27,8}
+	local mod_colors_grabbed = {25,16,18,3,24}
+	local col = self:is_grabbed() and mod_colors_grabbed[self.model] or mod_colors[self.model]
+	rectfill(self.pos.x, self.pos.y, self.pos.x+cw, self.pos.y+ch, col)
+	spr(self.size-1, self.pos.x, self.pos.y)
+end
+
+function card_intersect_point(self, point)
+	return point.x > self.pos.x and point.x < self.pos.x+cw
+		and point.y > self.pos.y and point.y < self.pos.y+ch
+end
+
+function card_move(self, dx, dy)
+	self.pos.x = clamp(self.pos.x+dx, 0, sw-cw)
+	self.pos.y = clamp(self.pos.y+dy, 0, sh-ch)
+end
+
+function card_update(self, mx, my, mb, allowUpdateOnPile)
+	local mpressed = mb & 0x1 == 1 -- left btn pressed
+	local canBeGrabbed = self:is_free() or allowUpdateOnPile and self:is_stacked()
+	if self:is_grabbed() and not mpressed then
+		self.state = card_free
+	elseif canBeGrabbed and mpressed and self:intersect_point(vec(mx, my)) then
+		self.state = card_grabbed
+		self.target = nil
+	end
+	if self:is_grabbed() then
+		local mdx, mdy = mouselock(true)
+		self:move(mdx, mdy)
+	elseif self:is_free() and self.target then
+		if self.pos:distance(self.target.pos) < 2 then
+			self.pos = self.target.pos*1
+			add(self.target.cards, self)
+			self.target = nil
+			self.state = card_stacked
+		else
+			local mv = spring(self.pos, self.target.pos, 5) - self.pos
+			self:move(mv.x, mv.y)
+		end
+	end
+end
+
+function card_moveToStack(self, stack) 
+	self.target = stack
+end
+:: constants.lua
+--[[pod_format="raw",created="2024-11-22 15:57:20",modified="2024-11-23 03:32:09",revision=649]]
+dt=1/60
+sw, sh = 480, 270
+debug=nil
+
+:: label.png
+b64$iVBORw0KGgoAAAANSUhEUgAAAeAAAAEOCAIAAADe_FMwAAAm3ElEQVR4Ae2dPa-iTJr3LyPu
+gIgQkh2pw2a-wSRIp0kbqecEJ7jVepxgyxppg-0cjyYboSqSutXagOBsS_6URnIy32B8wvvRTALB
+ExAR7Gq9QUHhY5eN8Qv45f_TBXb5Krt8VdXvSg0CAIBu85P-Xt3DP1kfcveFoAGAXCqRC3IoeRpk
+yqHxVdPYx-oGADQS90tpdYj_Pars3V-0tn0ZyJPt_niHT_xhlgHoCE8vA3kgFbmzZ1q2PO6TyT7y
+DkAX5EJEpmXLS8EZEW3Xx458fjBdyhPDc3InUGVPIi8FZ9fTON_RO4agAQBly6UValafH3B2k6Zl
+YQs-IYJp2bLapRQ807IFz_ron-x3CBqATni5uFyabmdtZQo4y_homRaVyfSwFE6OlmQzNQQNQJsp
+Sy5N9PLVyhScK1MWU2-XR8GZ9mmCsxsSeIuaJT2sYwDarWlxllEhuTQHw3OyaDdjWCkIznLYmYj6
+WMEAgFZqOuDMtGytLm9Vc7jOmZatzquucBA06CLBtyrV8LVeH-soubQMma6nl8Gt2ROckTuGoAEA
+Jcul0RieE_gqk_E5Nz1H5U3beD2Zee0MQQNwjfmu_DZ7IEXl0nxHE1EwXRZUs2nZ4XZ1KTiTMWmZ
+lEso1-qBoAFI21ehrZh-mz1WzYXk0liUlLWNWUwtkxPJXoRwMpMyaVq24CyfpiFoAPR21npN8F0j
+HF2WXBqt5pTKJGNSNP30MkjPnjaZgrMkR_cr8xA0AO_8rN3b4Z122mO3bLP727lEuTTRzhkrU8BZ
+kqa1T5CVLCXAtOz0NN5a5iFoAELIbXPW9JWwRtm5uFwaYecclSngTOvoFGuHk5mDU5nPsIp62JIA
+xP2btAMFZ3W2c7oU5NHWSUu3c4pSTcsOpsssvQRn8kiJNC376WVQ1kdB0AC0h6eXgZJU3CN3lkt9
+SLFzeq-t_hjpq61z2sj0kZiWTfPd1fg_1jQAGtyx4Kf9Y1r2Ze_546YoSSojrBJ5HvGINrJxBNNl
+uDJFvuXdDL7-dhlpWnbAmeE5txk2R51wx4LvsveFoAFIdDQR0fyk6aao_apZ2o3gzPCcIEO9SY_U
+dYuIwtUre2RZ9LANAYgy312OeGMTJBVWhmw0LVsd6ZGttPbDS5Tg7FTj3XH2kfSxGQF4Z_GzzsLN
+6lJwdoqRmw3UTMSG5xCR4TkBZ2rWIrOZEqlFVi9tjKpwVfD0MoCgAXhn5-S9GjJ1MzT9KLk0nXyZ
+kdmO9xWc5VsqPcwEANLOpmWn2zliatOypdPrpuNy5dJQDM8RnGlvCc4Mz0nv-vQyyPHSp5fBdn28
+3tcdZ1R2HxsTAGln7U4OG1mracF3WXbafVCCyOHZIn3roOMgg3az940nIUn38V7XEzjfkTs_-ULQ
+AORG6_XakiSIMuVSS4Lp0vAc_VtF3yJp0SRfejlDXYegQeeZ75SFBWcRI6vdFW_XLaZlC77Lstke
+a_12I90aN2yWypTUtzQKrI0eticAl83sjsNb2rRseVyNBPW0dtLRiPFv18c_ZhGANGUD8CCeXgYQ
+NABnF7tjIiJ3LPjOtGwikr9ZIgEone362EMWAACgnkDQAMRwx4Iz7R3BGbljZAhA0ADcUcf5tFuk
+LwAQNABXmO-IHdN8d___AFyjjxSAruOOL78hBGfyxPAc1fib59DwyyVIXkYa3ZsU-x0zAJLoIQUA
+6K2tDgAeRB8pAKAsgulSnhieg2wACBqAGqnZtOzTJWfQNICgAaiFnZWaJfIy4AyOBhA0AI-xcljH
+cUzLDjiT5zA1yEEPKQAgH4bnZNFuxjAA4vSRglbyk-9e3cM-WR_Q4bB-A85My47fEpxBzaAIPaQA
+AADqSR8p6DhPLwN5sl0fkY18GJ4TcCbPTcsW53PDc7qZkOBbldn_CkGDhuJ_kf_f6N_zdvHOJ_Mr
+gT93f0GCUxxNRMF02XE1AwgagBqhpKxthKmvMN_dTtwxkgFBAxik-Byalh1uV5eCMxmDJCepOZSr
+HTQNQYOTVtTGCDiDQYqnUQuSnGJnbVUTfAdHQ9Cd1op2YwScQR9F0pgOkqy8HCld8UQJfoqBqSHo
+Dgnl6sYIOJPnMHU_OwvOZLs60Sa50_mVzj1r_koYgKA7gpSC0nR6GABVa1rwXVKRq4mdP1kfNLX5
+GwQNqtR0wFnSxoCdsxBMlyqBIpZMwZm2l4o0LTsoO9ValYBKdtBXCBqAJiBLWrjghcWdHgnIHQu_
+U3m7ZMwd3-CQ_ffW5wmC7hbSFPGNYXgOkgPu7GgiovlJ07epuTP0kIIOOjqs48glyILgTCbN8BxV
+5BSmZWeM7Cjz3eWIN4IQfaSgOwTTZUojNA3uoeZYDQtfCs5OMe64mxn6ZH2AoLur5pSNIWOg6Vsx
+PCfgLJJYlVXkM2JnbaJ0C7LTmoagO2fnjBsj4AyavqrjfPkp0rcFdk5fgdoFKfiu446GoNtv5xwb
+o7seyZBPw3Pk7z37ttLOgrPIwouvxo47GoLuop2zbAw4WovMSTwz4ZTe2rezqLWXJXsQNOji3uio
+Z7-eEu1mMi-QM9_FRRxZeElqVpGmZQu_I3cMQYNWEUyXWTZGvF1tjIAzqKc1-OS-V-fwT9aHqzGC
+M3LHgl98rZZfRNPayG7Sw8JtPYIzw3PCe8C0bHlcjQSg0pUpjxqNyf1S4XE7faySbm4MJAEk8fQy
+kCfb9bHMJeeOiYjcseA707KJSP5miewsEHT7XWx4DhEZnhNwlr4x4pGgg2pWUy8LeYmabhPBdClP
+5K6BoG-m42tQ3cPfng2sUdAyO0eqsrwUnJXsaHcs_C7yrktJcMeNULMaf8BZdZruYV12B8NzBGfa
+W4KzilYYqL_X5aE1pjSRismr47zaLdK3Mjublh3OlbyU1i6dPhYoEfmzvTyZbEZt0nGQV7tF_lbK
+x9eguoe-PRsdXPzb9VFqOktYHuY7csen33v2LdvLSsdJZSzgTG0fCLpMNauk_5y1RtPBdGl4jvy9
+Z1-QUE0LzrT2EZzltzPRya0xw4qzznL0vT9yIyhNp4eVSKcF7c-2kRUpL33OWuBouVbiKybLxkjq
+27jS25py2zZq4Nx8eypILmNV7JcuClptXW2iZbt-tljLtnejnXvT-KrJlVMJTV9luz6q4m1atjrf
+ro9IzqPooqDlXlWaTg8DjbNzpO7KS58zTGgWRxPR08sAak7C8JxAV8YMz4GgS9a0z1lkM0sENnMD
+vRzWcRzTsv3zXsLkxlFS1jbC1BFHE1EwXVaq5q4LGrSs3IY1nR4GtBaO1DZ1KTiTMdC0krK2sQpT
+d1rQk83I50wtR3E_xzZu9IRGRKMsg2lNsrM2Y1pTd1bTysIpZUzGlKvpTgtaudif7aFm0EE7p6tZ
+a2rBWdccLc2bsYwFnJWo6e4KWklZ2whTN7fi_pypPSPO55jQjHYWnCkRawNkVrvj6GC6zFHGAs5K
+cXQXBa0sHMm7uhScyRjs6oY6GrUWVGpnVfjjGlGNpTi6c4KW_za9JKq7PmfY4U0svdpGzKPi6WWg
+FrngLLIdwvaJtMtI07IFZ9v1sbMJDGev0hd1S9D_bJ_uZu00_JxhbzdFzZH5DW8kGYOpjDh3uz6G
+HZ2knnhk6wmmy6QyluLlcBkLODM8B4Iuwc4pK8_0bDi6-nZOF4e663MGTYNby5jhOcF7RWjXmzYS
+gi5hApCEVtbdJFOj4splv10fiWi7PoqYU8KX6ZEdl0al2eh1cBvHdZyU4vAc_LM9FmVT7Cw4U0eS
+pjGhIKOIDc8hIsNzwkJQR3okBH1zuiebUZb0ZY8ENSS_f0AK2-UxaakLzrbrI1L0EDon6KQlqH5B
+U-Bne_Xf_NwJzuShnWtpcH_277KO82m3SN_mY3hOShkzPAeCLiriyWZERJPNKJxo07LlcTUS1HZa
+0yc0KTIT8_8VHo-g6WWwXR_fXgZ37ttEHefTbpG_YfrY3qCVykYSUtiuj_r31rwl9W0fwXRpeI78
+vWdfCJqIaLIZ_ZyZlq3d3pPNCNu4KS6WkxWe0PRpTZl6WBsopFvjhs1SxpL6QtDvePvlT_d8Ef3a
+_81z6JdwEol_7cV7acMijeR_ofl3LGIAOmjtu9FyQXeEgD6fzub-Xf6KdBuzSCabkc_ZadnxW4Kz
+yWaEpQKaBQR9dtx0_ZAKCQrqOJ92i-TNwcfXoLqHvz0bWAwQdMvVbFr26ZKzNmv6sDqdDBdN-xR-
+tp9sRvL3nn0BgKDvZ2elZom8DDhrm6MPq3AdEtLUt2j6k-Uhmj36XN14DfqRHiDdGjes4Ozqw5P6
+1qHqhEcIIOiOejms4zimZQfnfd4GUx9W2jokDqubHF1-mus1qWY1TT5n0DTodfOzDc-Jot2MYXX2
+sjxS6pCKuc9IsOWS7Gxadnia5KW0dvP219cKj07R7-KuMDwn4EwrL8FZs9UsGS5OcswSlsT8e1E1
+y0ogEysHk-7GLnn5UikTKqjPmTyfbEbIWNfoIQXtZ7gQ500er0PVuvKwMi07bJ-T5dWa0Q0mm1EW
+7WYMA_2j3-HvNzwnOMvLtGwlMsNzsDiKeFmlVHvftGyhHF1phWiIpn3OtLkSnEHNEHTXHU1EwXTZ
+ZjUPF0qI4TpUlRzlY5WC08MAABB0HCVlbWPbTB2R5h3kOFyIw8q07PgdwdnVAQT0WdP6PM-48smr
+26DJmWxG-rlqhivoZDOCpCDo7qo5og91KTiTMW3QtJKytvEOpgbZHE1E-mwPNYNOC1qaN6LmCOpu
+wFmDNX22cEodOsVUpOnhQoTGIDjLWRVaXU6UlLWNMDUE3S07p6tZa_qAs_Y5_rDKXodOGq1Cf-KZ
+uQ37-isqHOdD1ZxSQWUMNA1Bd93OgrOku6ZlN8zRh1WOOiQOqzLdp6SsbczyothXVDLOh9o5YwX1
+OYOmG__fb1cCjK-dFnQKgrP2fEyCncPfqA0wLbsc950trNXraSQpL0roHh1ndtHX0s45KqjPGRzd
+KTok6GC6DAsi7g6to1WkadkBZ4bnNDcD7-xYZXlIcWt4JCLptnSuUnB6WIvsnKWCwtGdotfBbxac
+GZ6TRVLZI2vEYZUkYsGZPFLUYFr2dTNee3u6nbMyXCRlXnDWXDun163Ssgcg6JZZO260xn9RzHFa
+BWgjC9YGrf3blN7c_LN9wQrqz-ZIY0fod1DEhucQkeE5AWdqq8TNkhTZgjqk-d46MlyIw0oN_GKu
+4aIdczHZjPz3SyupwsUjQfOY704n7hiC7jSCs5PFhgtxWMmNnbT545F5CPUVMZVc3Hq7o_XD26Tm
+9lRQcCuZ1SzpdTlXhuckiUNwZngOllPu2hBOrGnZ8rjV_Jcj3tj8LE02IyKabEZhKcdzpY0EXbAz
+EfU7peMgr3aL9H08w4U4rLR_lDKt3YDP-o2MWV0Kzk4xNRw8AOXRIUEH06XhOfL3nn0fouOc5irS
+N2J8XVUIXwrOaK170WEVV3OEi6lboenJZuRzllRBJ5tRKW-5ZH2A7yDoSvj4GhR-iHRr3LCCs9x9
+64g0bD7PFulb0uDT1aw1dcGi8hAd59Nukb4gE-Pv6feDb9kftTMtW3BG7rjlgq6OZjj3JqSqYsLK
+UoeS_uYeiUgQruBM85bk4JOIzydxTTfI0f5sP9mM5O89_4K7_H2X1ni7qdsmaH_2lydYwRrzVvyK
+BlnygciVGV_fWSpoUl9QHzWblh1uVpeCs1PMLZpuj6ClmlU6fM6IyPCwcO6FtHNuRx9W4aUcWeVJ
+8lKRpmU3ujzAuS2wc2TRRggt7xs03RJB_7O9vnD92sPiuRNSjjFFJrk1CcEZDRci5OuwuNMjAXiI
+nW9agTJY8F0WRzdb0P5sH9nDoI7WfgRvzwbSDx5lZ8FZxMhxTWdxdK-RyZlsRpPNCIukNQjOTk4f
+LsJLPL7Q0yMBeCymZcuj4HOaLWilaWxRAMC9me_UguMKEpxpvaQaTcum_a79ggbtZLhIqruCMxou
+kCFQEwRn5I4jy9W0bKXv9MgU_u1I0GQz8kN1SX3-b56D1dMYHR9WObVbpC8AFSm7DHqtychkM5ps
+RkmXoO5Iwx5W9_4LQHEXu2MiInesvGxatjrSI9PptyBB-myf1Gh4WD8NYbi4-EZWf96_ADSdZgta
+qTlcpt5d-trDHDfe2gA0BXcs_C6iI4ngjNxxhwQt7azNBQAA3EfHObSbvW9TBe3P9lAzAOCRzHfk
+jk_-1fRtpKCT7Cw4U_fQNwCgWqRbY4YNi_jWvm0QdArwMgBA8pP-Xvozt8fTydPgQ5p5S6J5gvZn
+e2VhwVnEyKp23cfUH1_D6h7_9mxgjwHQZXrNHbrgbLIZKSNLKcsD8woAyM7Ty0AedRtYv01ZDsu6
+bvizvTyZbEbYDwDUR81EZFp22CHb9RGCLupiabrJZuRzJvOrslxDNaux_ZxB0wDUxM4RachLwVlN
+HN1UQTcFf7bXrgD-XGDqz8fXIPHe8xxTDJro5fBmjGNatuBMnj-W1G0Q9GQz8jlLyvWjvHx1Bfjn
+FdAUUwPQDqRzlabTwx5L8wQtdVxzqcnhKU2nhzUF9TmoKKAdmhacmZYdvyU4q4OdGylof7afbEby
+txG1JGkFNEhzUs3qQ3zOoGkAIGi99bR2EJzFg3-zHMxxcTtHaoy8lJoGoLls10flDdOy1fl2fYSg
+y7d2nI-0n1f7vj0blQ5MiSy8ApIGXEMidg63C2xx0HxHE9HTy6Buam6VoOtfPPzZvjo1G-Qjd9_P
+r0HKXX_2pwRBA9BolJS1jTUxNQRdIUrK2sYqTF1FdfE5M3WOFpzReoFZzsLbs4Ek1FDNkYWtLgVn
+Mubhmoagq1VzygqQMY3QNLhKQJ_re7hBP5Dhcu0c2ZgRwvv0sZqGoKuyc8YV4HNWc01PNiM5SDls
+uWRPY3510-u_PRuPkhoAWjunb0ztPhWcPcrREHT5ds6xAnzOau5oVXhuKifBt9TbXzu5RA6r08lw
+gf1SHzsLzpLumpb9KEdD0Pews_AsYuT4Cqino5WUtY11Liq1VbNaAEKaGpquAeEdWisg6Htw2ZN1
+XQcpFo5UlPC3yJg0Tc93pxN3DDtrMykOKzj6Djy9DMJLNz4X2r2pImXAdn2EoJuKP9unrIAkNYdX
+gM9ZmuzubufIJyRVHZ_zJE2HErK7s6YD_qxtN_jHnb2srXPv1HCOganvgPRsfIcWiayOHiasihUw
+2YwiRjYtOz7N2siaVJrsi1IGS6enx9B817nVMFxk0m7GMFDZnlW-teKaoN0vFR5dmn551H_o0s5J
+KzhlEV91tIyh_e50lMJhdTpqr_mkvAnOoOZ77sTt_khE2-UxPCOmZcvjamTNBA1uXwGTzYiIJpuR
+mlc1-ZEVEI-sBO6Y3DER0bcf8cOgH9nVfMlqIzQNwI30y3pQMF3KE8NzkNa3X-5ERIZH9GtiCfzN
+c_iX07mMDLcQEblf9D3n3ysatj-bqxIiOAuXE9mSVJNkpGnZ-rnqJEWe1FyQwyoyNnkpDisaLmq6
+JoYLcS4hpmVfklnbAbed7foYX_RqoW7Xx5YIWqpZfWfAGTTddARnk83IDy3fsLjTIyskJDjtfdOy
+lQTrKD45pDqPsO06zqfdIn0fLOhguozsFnkZcNY1R0tPTTajHOXtppIWfLucG1-rLnrTsi9Od8dl
+Ci49rFZoxwxT35Gnl8F2fZS-9_z7GEErrUTsHNZ0cN6WHTG1P9tPNiP5mz2HKoEyXXXIlTiXGVly
+tAU4S_Q7Cqr5vX-FYaV9l_CsdrI7WzgpjYKzUww0XSXSrXHDirOmbu1rfK2xoKVHlKbTwzqCUlVG
+O2t3bMBZO5M235Vv6vpzWMXVHOFiamj6QdauMzkFrfwbcKZdf6KtoimGKmlJm9a07OBc0uuQwMlm
+5CdP8dVqJDteHMTZydQFNT1cnHRGZFq2OGesXnY7rNLVrM2VOKzgaKDoIQX3xPCcLNrNGFaFjrNo
+N3df07LlQfPdydQFHP1OZJHLetv5UlG0mj7XHgD6xY0TnFebadlq5T3ELw3SdMCZdgMLzh6YOn_2
+n2xG8rfSvvLbBd_RO87hvrTGWmn6RjsDULKglYuD6RJqbjrSrXHDZnFKUl-ZXVuNTMu_zdFnC0ee
+pi4FZ6eYx2r6sAoPKT5abT5VpGnZ4rCqf6UBdRe0krK2sfWm-sl-p----7S3Pl1zjuE5wXmXhnds
+DZOmde5DrBdXc9z4J9nVQdOyYAwXIuTr4pGgO3x8DXIKWlk4sp4uO4QzGdN6TedGZqbd9UwVnni7
+XCqmZQu_I-daQbvRXDJYHFYPd3RSTlQGAEghj6ClU9KXl7obcAZNJ5U3bWObcnUS5XtNC87IHQu_
+y2qoBDuHH6sNMC37gY4WnJ1ePVyI0CfEh5oUCcDNgg6my5sWkAwOOIOjwxaO5FBdCs5kDNKVfXUB
+AEGn2Vlwlr5nTMsu4ui3Z6M1dk53irobcJZF08E3IiLja2M0Kjgjd0xE5I4F31037GEVrl6ReLXw
+4u2yxbRscVjRcPHgFAwXIvQh0U94_PBAOwSdcRN2nKeXAXlZa1t6PotUtZYhRRbWXFjc6ZEP0XFO
+7RbpC7os6LBiBGeR1a82SbxdtpiW3RHdbNdHGmeys0pOPJ8qmW1KmuCM3PepKfi0eiINm8_zRfqC
+Lgs6vDEMzwlCTgmLOz0SgAvuWPBdFmULzk7CGi7EYaVKfsbIe3MeQJ6KktAXQND5ybTyukowXYYL
+WEQZSalTkaZlB5wZntPC1Mx35I5Pv60HzgV3ELQ4y8LwnCAkkYyRXUYmJJyKsLjTI5v7yWm3pZdv
+tfNwIQ6rpCUHD4I20UMKQIW44_hxK8NFfu0W6QtA0wVteI7gTHtLcGZ4DvIbT4g2aaZlZ4zsHIcV
+DRd0WN27LwA1oH_TjoO82i3St3E8vQzIw9IqieHi8vu_4OXuC0BT6GUPDaZLw3OC6TLHa4r0bZ6d
+M5SrJL_IzpSxotZOOgBoEf3soVIccX0kuSZL3-bZ2bRsIqJfL5XP8Jwgr3aL9AUAdEjQKeYF7_z8
+nmC6NDxH-t76zCJ9AQBdFzTIWMPihhWc5e4LAOgCPaSgFJ5eBqZl32TepAPJBABA0JUgONuuj8gD
+AACCBgCA1tJHCkpEcLZdH5EHAOrAJ_tD0z_hh1kEAAAIGgAAAAR9d7bro_Bsuz4iFQCAsugjBaXw
+9DLYro-yF9kAoAX85L9X9-BP1gcI_n5ILzfRzm-Pxq1dgm_YcADuAQT9GIL5fxfo-Tn6tPeXBv1A
+hgG4G08vA3myXR8haAAAqJGaTcuWl4KzcjXdQ4rrzmF1OgAANbOzadnKztLUpmVLa5dCH1mutZrD
+xVk6erhAYgB4rJeVjrUBpmULzuT5dn2EoNtp58j0y0txWMHRADwQ6Vyl6fSwgvSQ7rp5WR4pxVnF
+IFsAPFDTgjPtLcFZKXaGoOvHcEHDRWlhAIAm00cK6qlpcViZlq0tzlBzDTHoB5LQNbbro_BMnpuW
+rc636yMEDQAAj3c0ET29DEpXMwRdb4YLcVjFizMNFw8fmvEV0wO6jpKytrEsU0PQtXY0EdFZ03VQ
+MwBAWdi07HC7uhScyZjimoaga4mSsrYRpgbgoXaOqDlC2NQFNQ1B11TNKcX5FNNeTRv0AwsB1NPO
+6WrWmlpwltvRPSS9bnY2LTtlEci7pmXTYaVsDgB4lJ0FZ5GT_J59ehnke2n-yv35d0zM3eycpzgf
+VjRcIHkAtJIeUlB-OydV5pOmDyvkD4BKeXoZqB0a34_CM_0mVY2mZT_9DHK8t4-UV8HP3V_uhfxb
+xkel2BkAcGcEZ9v1UXCmfJ0k7nhkDnrI_OM5rFKKc9LshoszHVbIIgDtA4KuV3Gm4SLu6CKRAIAS
+d_h2fSSi7foY332mZWeMhKDbZe3zLwCgU0DQdRLxcEFENFyEdWxatjyuRpaM_6XCA4CGs10fk3af
+4Gy7Ppbylj4SDcBDCL5V_HDjKxJcvo7zabdIXwi6lgwX4rAyLVtbnGm4uNLd-XIlYP69TNFMlycp
+eA6mDrSSp5fBdn2Uv-fsayD1ufnJf88-39a-vbs_rKLazS7oWF-DvVZ3swj6quXPalbjFJxl1XSp
+FaKhBN8yh85350kZZ93YX5Hgyjf408sg6dZVF3_yPlwdwMfX4NpOBndAGjbu6Mr6fnwNrsa80Z_u
+2jlSQuRlwFkmR4PMag6VwN1NmgaVctXCxYGg85OlBl509i3S8PlyKt0aM6zg7PpzE-pWRzBdhnUc
+x7Ts4DxymLqgnbUlUPAdHN0F3p6NHrJQU4aLxKMk-NleHjf1Mjwni3YzhgGtl_WRUgJVDLLVbvpI
+QfsIpktlySQ1n-a5vOSMiCab0U2aDjjTGkRwBjUXwh2fNJ0lDEDQoHGkKzIiVnnpc3aTo0HVmhZ8
+l1QCYWcIGpRqzK-vLoPH2TnF2j5n8jyLqQ3PCc7xpmWL83m_twMAIGhwhSxqjlSCYLqEmivBHQu_
+i5dAcsfIDQQNuoXgLLudlZS1jTB1iY4mIpqfNA01Q9AAZFKzadnhdnUpOJMx0HQhlJS1jTA1BA3a
+iuBMWVWdTzajjHaOqDmCuhtwBk0XUXNKCTzFQNMQNGgcUqMpZpQu9mf77GqWj01Xs9bUAWdw9K12
+zlgCBYemIWjQNJQZkzSt1By5TDF1kp0FZ3FxRAYDR2e3c44SKPgOjoagQVM1HZdj2ALqXHAmTZ2i
+6aS3REwNSrez4CzprmnZcDQEDZqqaa2jU1Trc0ZEhne5FUyXYRFHTJGkZhWZfQwgKZNIQjfpIQUg
+buqIgsOmMDwn4gttvDYSJDLfhUtgUu1MErdp2TTfIYvto1--IX58Dap7_Nuz0dapFZzJjW1adsCZ
+4Tnau_ok91uwi8qdNXLHgl98XTwSNJceUtDWfW54Trn2lM8kovCTTctWR3okKFgFkckO0m-Tx-iz
+vTyZbEaY2ozbXtsetm0luF9KfuD8e0tmxB0TEbljwXdyFsT6f2i9OAWEo9cLos9Ei1Pj6fJEkO2N
+Bv3ARlD8y78_--Pvr7UaUq81avZne9Oy5SEvu2xew3OIyPCcJAurXMX7TjajpF6XjZ38ZPV2AJpl
+53-87a--8q-PtRpVvx12johGXvqcTTYjrLziGJ4T5NVujr7BdKn6djfp7ljwXbyCpnFYnU6GCyza
+fPzjb3-9wx-pn39-haBL8HJYx3FMy-Y5k_edMvVNXgtnT5xL2mQzol-eGdPwHPl762Bu6ivVrIYU
+cNYVTbtjwXfkjnN2P6zCeRPS1NB08x3dYEFLlShNp4d1FsNzAs4KOk52jz9EnOtfjr5aO0dqrbws
+Pv4GMN_ROz793m5nbd7EYQVHF3E0BF2Opn3OIgtU6aPjdpbWMzxH-qZH3pqusqQZTJdhrcQxLTs4
+V4LWmlp6OWZnwRmtEyR7WF3NmzjHwNTZ_cMf-0xE--z7K9H-ffhgepiPdiONVmevGZ6TZXgZw9pm
+7ZiyLwwXmbSbMazz-PPvr3-445--8Mc--_Nvf63PqPotyOxkM-I5k_emZYvz_WQzwrJrUCEJODMt
+O35LcFYHNQf0ueQnfg2df-uR8yHDhTiskvIGNd-qaCIyhq8QdPmOJiJ-toeas6BqGAAgiU-WBwi6
+KErK2kaYOqWe1Q3Dc4Jz5TAtW1URw3Malt-D6nQyXNzjdcOFOL8xnLc7vR1A0OlqNi073K4uBWcy
+poY_MujHlQj3SweXo3RxMF02Ws2XFSi9eQdRylfcuTAACDrdzhE1R1B3fc7qqWmgUFLWNjbD1IdV
+ZEHKS3FYVWhMJWVtI0wNQT-Ezulq1pra5wyOrrOatXYjIsGZjKmpps82TFqTpmWLKoyZ8N5w3k4x
+0DQE-XA7C87iazSycOHoeto5vdyquwFnddS01J9ScHpYqXbOmLdTeYCmIegHclmOIVODmts5XTHa
+KQ44q52jiWi4EIeV9nMEZ6XbOUfexGEFR0PQ1eLP9mERR5ZpkppVpGnZPmeTzQgTX1s7hydRG2Ba
+dk0dfR9SysC1vMHREPSdEJxNNiP-vaPleUTT2khQW8IFuGFDHy7EYXWxoRr-XZzY4LyB9glaq2xM
+Z1MIpsuwUCK1M2kqVaRp2QFnhufU0NFERGdNl6-mw6pg3sRhdZ_CAUqh11AXTzYjIppsRmpRmpat
+jvRIUKupNDwnMjWRSUyJrBGH1eWIN1aQNxouMuYtHgmaQh8pUPzkv1f38E-WB2Q4q3qaxdm-ETmq
+S8HZKWa4QN7ATfSa-gGTzShpaQrOJpsR5rjOLjY8h4gMz1GTaFq2OtIj62PnyGgjXD7nsFI2L_pi
+6frh4mre4pEAgq5Wx-m0W6RvhKeXgTywgDrNYZWuZq2pS3E0gKDriD-bTzYjf7a-c9_ImuVOMy0b
+mi4Lw3MEZ9pbgjPDc_ppZ_1o1ZGk6TIdPVyk5I2GCyytRtNv1nAnm5H6ja7FvH1vsnNkT8pLwdl2
+fcRiuknHQV7tFul7B9QKybIm8_j4sMqp3SJ9AQRd0NrV8fQyiOy9_J5UuxGmzkIwXRqeI3-v2bc0
+DquwiCMLI0nNKtK07JyulL3u3xdA0LVFOldpOj0MZEG6NW7YJLVl6fsQBGc0XIiQr1Uhj3yLNvJm
+pFtjhs2St6S_AIJuiaYFZ9rdJTiDncuydtPJ5MpygXMhaFCc4NsttkK_GuFiKcfhQhxWsngnlfB4
+JAAQdJls10fBmTw3LVudb9dHJAcAAEE-3tFE9PQyqFbN8x15DrLdJIYLcViZlh2-Izij4QIZAhB0
+hSgpaxtLM-V8R0SmZdOvvcd_78f-_s9449uzkf_J7peW6Tindov0BRA0SLKwadnhdnUpOJMxRTU9
+30VeAWqKNGw_z_r6Gl8TwwNkG4IG6XZO92bY1Hk0Pd-FC8D-_Y--CYfIJxMRuWPtM9QO--iKHV09
+0q0xO1_m6fa_AMTpIQXpdjYtO93OEVObli2dfgPuOEm7ecLAA62ddACQiz5SkG7neLvgLGxkraYF
+Z9v18VZNC75LfGNmNb89G5g7ACDojqIcGjY1AABA0Hfi6WUQFrE6T1ezijQtW3C2XR9ve6s7Fnyn
+ysDlLe4YMwIABA00zt2ujxFHy-OIprWRNyNdPD9pulw1f3wNqkvU27OB1QIABP14ZVfyXCVlbWOp
+pgYANF7QAX2u7sUG-WiEi7frIxFt10fBmWnZRCR-s0TequZIL3UpODvF3EvT-mwvTyabETYJAHUU
+NLgH812S9HWmrlzTUs3qjT5n0DQADRf0YXU6GS7amqnt_ig405pUcLZdH-PZOV3NWlMLvqvI0f5s
+HxmPvPQ5g6MBuD--C3n4In4tSALrAAAAEHRFWHRMb2RlUE5HADIwMTEwMjIx41m2wQAAAABJRU5E
+rkJggg==
+:: main.lua
+--[[pod_format="raw",created="2024-11-18 13:27:48",modified="2024-11-23 03:32:09",revision=1062]]
+include "card.lua"
+include "stack.lua"
+
+sx,sy = 480,270
+
+function _init()
+	cards = {}
+	local models = {card_mod_siren, card_mod_stock, card_mod_cyclo, card_mod_plan, card_mod_cmd}
+	for m=1,5 do
+		for s=1,5 do
+			for v=1,2 do
+				add(cards, make_card(vec(rnd(sw),rnd(sh)), models[m], s))
+			end
+		end
+	end
+	robopile = make_stack(vec(10, 150), {})
+end
+
+function _update()
+	local mx, my, mb = mouse()
+	for c in all(cards) do
+		c:update(mx,my,mb)
+		if c:is_free() and robopile:isCardIntersecting(c) then
+			c:moveIntoStack(robopile)
+		end
+	end
+	robopile:update(mx,my,mb)
+end
+
+function _draw()
+	cls(0)
+	for c in all(cards) do
+		c:draw()
+	end
+	robopile:draw()
+	if (debug) ?debug
+end
+:: math.lua
+--[[pod_format="raw",created="2024-11-22 16:00:14",modified="2024-11-23 03:32:09",revision=687]]
+include "constants.lua"
+
+function clamp(v, minv, maxv)
+	return max(minv, min(v, maxv))
+end
+
+function expt(x)
+	local res = 1+x
+	local exp = x
+	local fact = 1
+	for i=2,10 do
+		exp = exp*x
+		fact = fact*i
+		res += exp/fact
+	end
+	return res
+end
+
+function spring(pos,target,stiff)
+	local delta = pos - target
+	local newdelta = delta * expt(-stiff*dt)
+	return target + newdelta
+end
+:: stack.lua
+--[[pod_format="raw",created="2024-11-22 20:22:38",modified="2024-11-23 03:32:09",revision=421]]
+function make_stack(init_pos, cards)
+	return {
+		-- members
+		pos=init_pos,
+		cards=cards,
+
+		-- methods		
+		draw = stack_draw,
+		update = stack_update,		
+		isCardIntersecting = stack_isCardIntersecting,
+	}
+end
+
+function stack_draw(self)
+	if count(self.cards) == 0 then
+		rect(self.pos.x, self.pos.y, self.pos.x+cw, self.pos.y+ch, 7)
+	else
+		local top_card = self.cards[#self.cards]
+		top_card:draw()
+	end
+end
+
+function stack_update(self,mx,my,mb)
+	if count(self.cards) > 0 then
+		local top = self.cards[#self.cards]
+		top:update(mx,my,mb,true)
+		if top:is_grabbed() then self.cards[#self.cards] = nil end
+	end
+end
+
+function stack_isCardIntersecting(self, card)
+	local x1,y1 = self.pos.x, self.pos.y
+	local x2,y2 = x1+cw, y1+ch
+	local cx1, cy1 = card.pos.x, card.pos.y
+	local cx2, cy2 = cx1+cw, cy1+ch
+	return x1<=cx2 and x2>=cx1 and y1<=cy2 and y2>=cy1
+end
+:: .info.pod
+b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTIyIDEzOjU5OjMzIixtb2RpZmllZD0iMjAyNC0x
+MS0yMyAwMzozMjowOSIscnVudGltZT0xMixzdG9yZWQ9IjIwMjQtMTEtMjIgMTM6NTY6MjAiLHdv
+cmtzcGFjZXM9e3tsb2NhdGlvbj0ibWFpbi5sdWEjOSIsd29ya3NwYWNlX2luZGV4PTF9LHtsb2Nh
+dGlvbj0iY2FyZC5sdWEjNDQiLHdvcmtzcGFjZV9pbmRleD0xfSx7bG9jYXRpb249InN0YWNrLmx1
+YSMyMSIsd29ya3NwYWNlX2luZGV4PTF9LHtsb2NhdGlvbj0iY29uc3RhbnRzLmx1YSMxIix3b3Jr
+c3BhY2VfaW5kZXg9MX0se2xvY2F0aW9uPSJtYXRoLmx1YSMyMiIsd29ya3NwYWNlX2luZGV4PTF9
+LHtsb2NhdGlvbj0iZ2Z4LzAuZ2Z4Iix3b3Jrc3BhY2VfaW5kZXg9Mn0se2xvY2F0aW9uPSJtYXAv
+MC5tYXAiLHdvcmtzcGFjZV9pbmRleD0zfSx7bG9jYXRpb249InNmeC8wLnNmeCIsd29ya3NwYWNl
+X2luZGV4PTR9fV1d
+:: [eoc]
