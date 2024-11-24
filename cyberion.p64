@@ -4,44 +4,44 @@ version 2
 :: gfx/
 :: gfx/0.gfx
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yMyAwMzozMjowOSIscmV2aXNpb249OTM2XV1sejQAUwEAAGU0AADwHXtbMF09e2JtcD1weHUA
-QyAgIATwPifwCxclF-AIB2UH8AQnhSfwAweFB-AGDwAQBwUA8zEIJwUn8AsHBQfwCUcFN-AEJ3Un
-8AEXxRfQB-UBB7AHhQeFB6AHdReFB5AHJQdVB1UHJQeABxUHAAdFB0UHAAcVDgAzNSc1DgCdBQcg
-B4UHIAcFDADzBDAHZQcwBwUHkAdAB2UHQAeQBwAUAPMGAAfwAIfwvCxmbGFncz0wLHBhbl94CADP
-eT0wLHpvb209OX0s3QA8kWU3dQegB5UHdd0ANTU3Rd0ANyUHZd0ALyU33QCuJkUn3QA-VQc13QCu
-MAcVB98AAggADL4BCuEABg4AD74Bnj5lB6XdAA__AWtfEBAE8PAxAP----------------------
------------------------------------------xNQbT05fX0=
+MS0yNCAwMDowNzo0MCIscmV2aXNpb249MTE2M11dbHo0AFMBAABlNAAA8B17WzBdPXtibXA9cHh1
+AEMgICAE8D4n8AsXJRfwCAdlB-AEJ4Un8AMHhQfwBg8AEAcFAPMxCCcFJ-ALBwUH8AlHBTfwBCd1
+J-ABF8UX0Af1AQewB4UHhQegB3UXhQeQByUHVQdVByUHgAcVBwAHRQdFBwAHFQ4AMzUnNQ4AnQUH
+IAeFByAHBQwA8wQwB2UHMAcFB5AHQAdlB0AHkAcAFADzBgAH8ACH8LwsZmxhZ3M9MCxwYW5feAgA
+z3k9MCx6b29tPTl9LN0APJFlN3UHoAeVB3XdADU1N0XdADclB2XdAC8lN90AriZFJ90AP1UHNd0A
+rjAHFQffAAIIAAy_AQrhAAYOAA__AZ4_ZQel3QAPvgFrXxAQBPDwMQD---------------------
+------------------------------------------8TUG09OX19
 :: gfx/.info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yMyAwMzozMjowOSIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+MS0yNCAwMDowNzo0MCIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
 :: map/
 :: map/0.map
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yMyAwMzozMjowOSIscmV2aXNpb249OTA4XV1sejQAaAAAAFgQAADwCHt7Ym1wPXVzZXJkYXRh
-KCJpMTYiLDMyAwAvIjABAP--------------------vxCCIpLGhpZGRlbj1mYWxzZSxwYW5feD0w
-CADSeT0wLHRpbGVfaD0zMgoAEHcKAIB6b29tPTF9fQ==
+MS0yNCAwMDowNzo0MCIscmV2aXNpb249MTEzM11dbHo0AGgAAABYEAAA8Ah7e2JtcD11c2VyZGF0
+YSgiaTE2IiwzMgMALyIwAQD--------------------78QgiKSxoaWRkZW49ZmFsc2UscGFuX3g9
+MAgA0nk9MCx0aWxlX2g9MzIKABB3CgCAem9vbT0xfX0=
 :: map/.info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yMyAwMzozMjowOSIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+MS0yNCAwMDowNzo0MCIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
 :: sfx/
 :: sfx/0.sfx
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ5Iixtb2RpZmllZD0iMjAyNC0x
-MS0yMyAwMzozMjowOSIscmV2aXNpb249OTA0XV1sejQAEgEAAMIJAADwJ3B4dQADKAAABAAED0AQ
-Ag4AAaABIAKgDgAPEAAN8MoBAgMEBQYHAA--kAgJCgsPDA8NDw4PDxAA8AANDxEPEg8TDxQPFQ8W
-DxcTAPEBDxgPGQ8aDxsPHA8dDx4PHxQA8QAgDyEPIg8jDyQPJQ8mDycUAPEAKA8pDyoPKw8sDy0P
-Lg8vFADxADAPMQ8yDzMPNA81DzYPNxQA-wU4DzkPOg87DzwPPQ8_Dz8AD--w-wEA6-8nWgEQBg8g
-EAEgASAB8AACEAIMEAEgDyEgATAPQPDDDygP--DGD-gKD-8PgA-3Dw0B8AkBEAYMMAD--7of-wEA
-zL-oD0AADUD--7DwcAoA--9kH-8BAP_ZUP----8g
+MS0yNCAwMDowNzo0MCIscmV2aXNpb249MTEzMF1dbHo0ABIBAADCCQAA8CdweHUAAygAAAQABA9A
+EAIOAAGgASACoA4ADxAADfDKAQIDBAUGBwAP-5AICQoLDwwPDQ8ODw8QAPAADQ8RDxIPEw8UDxUP
+Fg8XEwDxAQ8YDxkPGg8bDxwPHQ8eDx8UAPEAIA8hDyIPIw8kDyUPJg8nFADxACgPKQ8qDysPLA8t
+Dy4PLxQA8QAwDzEPMg8zDzQPNQ82DzcUAP8FOA85DzoPOw88Dz0PPg8-AA--8P8BAOv-J1oBEAYP
+IBABIAEgAfAAAhACDBABIA8hIAEwD0Dwww8oD--wxg-4Cg--D4AP9w8NAfAJARAGDDAA--_6H-8B
+AMy-6A9AAA1A--_w8HAKAP--ZB--AQD-mVD-----IA==
 :: sfx/.info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yMyAwMzozMjowOSIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+MS0yNCAwMDowNzo0MCIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
 :: card.lua
---[[pod_format="raw",created="2024-11-18 15:42:45",modified="2024-11-23 03:32:09",revision=1070]]
+--[[pod_format="raw",created="2024-11-18 15:42:45",modified="2024-11-24 00:07:40",revision=1310]]
 include "constants.lua"
 include "math.lua"
 
 -- card width/height
-cw,ch = 30, 50
+cw,ch = 50, 60
 
 -- card states
 card_free=0
@@ -93,9 +93,9 @@ function card_move(self, dx, dy)
 	self.pos.y = clamp(self.pos.y+dy, 0, sh-ch)
 end
 
-function card_update(self, mx, my, mb, allowUpdateOnPile)
+function card_update(self, mx, my, mb, allowUpdateOnPile, card_held)
 	local mpressed = mb & 0x1 == 1 -- left btn pressed
-	local canBeGrabbed = self:is_free() or allowUpdateOnPile and self:is_stacked()
+	local canBeGrabbed = card_held == nil and (self:is_free() or allowUpdateOnPile and self:is_stacked())
 	if self:is_grabbed() and not mpressed then
 		self.state = card_free
 	elseif canBeGrabbed and mpressed and self:intersect_point(vec(mx, my)) then
@@ -122,11 +122,23 @@ function card_moveToStack(self, stack)
 	self.target = stack
 end
 :: constants.lua
---[[pod_format="raw",created="2024-11-22 15:57:20",modified="2024-11-23 03:32:09",revision=649]]
+--[[pod_format="raw",created="2024-11-22 15:57:20",modified="2024-11-24 00:07:40",revision=883]]
 dt=1/60
 sw, sh = 480, 270
 debug=nil
 
+function moveback(t,o)
+	local pushing_back = false
+	for i=1,#t do
+		if t[i] == o then
+			pushing_back = true
+		end
+		if pushing_back and i < #t then
+			t[i] = t[i+1]
+		end
+	end
+	t[#t] = o
+end
 :: label.png
 b64$iVBORw0KGgoAAAANSUhEUgAAAeAAAAEOCAIAAADe_FMwAAAm3ElEQVR4Ae2dPa-iTJr3LyPu
 gIgQkh2pw2a-wSRIp0kbqecEJ7jVepxgyxppg-0cjyYboSqSutXagOBsS_6URnIy32B8wvvRTALB
@@ -306,46 +318,74 @@ NLgH812S9HWmrlzTUs3qjT5n0DQADRf0YXU6GS7amqnt_ig405pUcLZdH-PZOV3NWlMLvqvI0f5s
 HxmPvPQ5g6MBuD--C3n4In4tSALrAAAAEHRFWHRMb2RlUE5HADIwMTEwMjIx41m2wQAAAABJRU5E
 rkJggg==
 :: main.lua
---[[pod_format="raw",created="2024-11-18 13:27:48",modified="2024-11-23 03:32:09",revision=1062]]
+--[[pod_format="raw",created="2024-11-18 13:27:48",modified="2024-11-24 00:07:40",revision=1344]]
+include "constants.lua"
 include "card.lua"
 include "stack.lua"
 
 sx,sy = 480,270
 
 function _init()
-	cards = {}
-	local models = {card_mod_siren, card_mod_stock, card_mod_cyclo, card_mod_plan, card_mod_cmd}
-	for m=1,5 do
-		for s=1,5 do
-			for v=1,2 do
-				add(cards, make_card(vec(rnd(sw),rnd(sh)), models[m], s))
-			end
-		end
-	end
-	robopile = make_stack(vec(10, 150), {})
+	robotcards = {}
+--	local models = {card_mod_siren, card_mod_stock, card_mod_cyclo, card_mod_plan, card_mod_cmd}
+--	for m=1,5 do
+--		for s=1,5 do
+--			for v=1,2 do
+--				add(robotcards, make_card(vec(rnd(sw),rnd(sh)), models[m], s))
+--			end
+--		end
+--	end
+	factory = {}
+	for i=1,5 do add(factory, make_stack(vec(70+i*60, 5), {})) end
+
+	robopile = make_stack(vec(60, 135), {})
+	discard = make_stack(vec(5,135), {})
+	flash = {}
+	for i=1,5 do add(flash, make_stack(vec(70+i*60, 70), {})) end
+	platform = {}
+	for i=1,5 do add(platform, make_stack(vec(70+i*60, 135), {})) end
+	stock = {}
+	for i=1,5 do add(platform, make_stack(vec(70+i*60, 200), {})) end
+	
+	card_held = nil
 end
 
 function _update()
 	local mx, my, mb = mouse()
-	for c in all(cards) do
-		c:update(mx,my,mb)
-		if c:is_free() and robopile:isCardIntersecting(c) then
-			c:moveIntoStack(robopile)
+	for c_index=#robotcards,1,-1 do
+		local c = robotcards[c_index]
+		local was_held = card_held == c
+		c:update(mx,my,mb,false,card_held)
+		if c:is_free() then
+			if was_held then card_held = nil end
+			if robopile:isCardIntersecting(c) then
+				c:moveIntoStack(robopile)
+			end
+		elseif c:is_grabbed() then
+			card_held = c
 		end
 	end
-	robopile:update(mx,my,mb)
+	if (card_held) moveback(robotcards,card_held)
+	
+	robopile:update(mx,my,mb,card_held)
 end
 
 function _draw()
 	cls(0)
-	for c in all(cards) do
+	robopile:draw()
+	discard:draw()
+	for f in all(factory) do f:draw() end
+	for f in all(flash) do f:draw() end
+	for p in all(platform) do p:draw() end
+	for s in all(stock) do s:draw() end
+
+	for c in all(robotcards) do
 		c:draw()
 	end
-	robopile:draw()
 	if (debug) ?debug
 end
 :: math.lua
---[[pod_format="raw",created="2024-11-22 16:00:14",modified="2024-11-23 03:32:09",revision=687]]
+--[[pod_format="raw",created="2024-11-22 16:00:14",modified="2024-11-24 00:07:40",revision=912]]
 include "constants.lua"
 
 function clamp(v, minv, maxv)
@@ -370,7 +410,7 @@ function spring(pos,target,stiff)
 	return target + newdelta
 end
 :: stack.lua
---[[pod_format="raw",created="2024-11-22 20:22:38",modified="2024-11-23 03:32:09",revision=421]]
+--[[pod_format="raw",created="2024-11-22 20:22:38",modified="2024-11-24 00:07:40",revision=649]]
 function make_stack(init_pos, cards)
 	return {
 		-- members
@@ -393,7 +433,8 @@ function stack_draw(self)
 	end
 end
 
-function stack_update(self,mx,my,mb)
+function stack_update(self,mx,my,mb,card_held)
+	if (card_held) return
 	if count(self.cards) > 0 then
 		local top = self.cards[#self.cards]
 		top:update(mx,my,mb,true)
@@ -410,12 +451,12 @@ function stack_isCardIntersecting(self, card)
 end
 :: .info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTIyIDEzOjU5OjMzIixtb2RpZmllZD0iMjAyNC0x
-MS0yMyAwMzozMjowOSIscnVudGltZT0xMixzdG9yZWQ9IjIwMjQtMTEtMjIgMTM6NTY6MjAiLHdv
-cmtzcGFjZXM9e3tsb2NhdGlvbj0ibWFpbi5sdWEjOSIsd29ya3NwYWNlX2luZGV4PTF9LHtsb2Nh
-dGlvbj0iY2FyZC5sdWEjNDQiLHdvcmtzcGFjZV9pbmRleD0xfSx7bG9jYXRpb249InN0YWNrLmx1
-YSMyMSIsd29ya3NwYWNlX2luZGV4PTF9LHtsb2NhdGlvbj0iY29uc3RhbnRzLmx1YSMxIix3b3Jr
-c3BhY2VfaW5kZXg9MX0se2xvY2F0aW9uPSJtYXRoLmx1YSMyMiIsd29ya3NwYWNlX2luZGV4PTF9
-LHtsb2NhdGlvbj0iZ2Z4LzAuZ2Z4Iix3b3Jrc3BhY2VfaW5kZXg9Mn0se2xvY2F0aW9uPSJtYXAv
-MC5tYXAiLHdvcmtzcGFjZV9pbmRleD0zfSx7bG9jYXRpb249InNmeC8wLnNmeCIsd29ya3NwYWNl
-X2luZGV4PTR9fV1d
+MS0yNCAwMDowNzo0MCIscnVudGltZT0xMixzdG9yZWQ9IjIwMjQtMTEtMjIgMTM6NTY6MjAiLHdv
+cmtzcGFjZXM9e3tsb2NhdGlvbj0ibWFpbi5sdWEjNTAiLHdvcmtzcGFjZV9pbmRleD0xfSx7bG9j
+YXRpb249ImNhcmQubHVhIzUiLHdvcmtzcGFjZV9pbmRleD0xfSx7bG9jYXRpb249InN0YWNrLmx1
+YSMyNCIsd29ya3NwYWNlX2luZGV4PTF9LHtsb2NhdGlvbj0iY29uc3RhbnRzLmx1YSMxMSIsd29y
+a3NwYWNlX2luZGV4PTF9LHtsb2NhdGlvbj0ibWF0aC5sdWEjMjIiLHdvcmtzcGFjZV9pbmRleD0x
+fSx7bG9jYXRpb249ImdmeC8wLmdmeCIsd29ya3NwYWNlX2luZGV4PTJ9LHtsb2NhdGlvbj0ibWFw
+LzAubWFwIix3b3Jrc3BhY2VfaW5kZXg9M30se2xvY2F0aW9uPSJzZngvMC5zZngiLHdvcmtzcGFj
+ZV9pbmRleD00fX1dXQ==
 :: [eoc]
