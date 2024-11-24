@@ -4,7 +4,7 @@ version 2
 :: gfx/
 :: gfx/0.gfx
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDowNzo0MCIscmV2aXNpb249MTE2M11dbHo0AFMBAABlNAAA8B17WzBdPXtibXA9cHh1
+MS0yNCAwMDoyMToyMiIscmV2aXNpb249MTIwMl1dbHo0AFMBAABlNAAA8B17WzBdPXtibXA9cHh1
 AEMgICAE8D4n8AsXJRfwCAdlB-AEJ4Un8AMHhQfwBg8AEAcFAPMxCCcFJ-ALBwUH8AlHBTfwBCd1
 J-ABF8UX0Af1AQewB4UHhQegB3UXhQeQByUHVQdVByUHgAcVBwAHRQdFBwAHFQ4AMzUnNQ4AnQUH
 IAeFByAHBQwA8wQwB2UHMAcFB5AHQAdlB0AHkAcAFADzBgAH8ACH8LwsZmxhZ3M9MCxwYW5feAgA
@@ -13,20 +13,20 @@ rjAHFQffAAIIAAy_AQrhAAYOAA__AZ4_ZQel3QAPvgFrXxAQBPDwMQD---------------------
 ------------------------------------------8TUG09OX19
 :: gfx/.info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDowNzo0MCIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+MS0yNCAwMDoyMToyMiIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
 :: map/
 :: map/0.map
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDowNzo0MCIscmV2aXNpb249MTEzM11dbHo0AGgAAABYEAAA8Ah7e2JtcD11c2VyZGF0
+MS0yNCAwMDoyMToyMiIscmV2aXNpb249MTE3Ml1dbHo0AGgAAABYEAAA8Ah7e2JtcD11c2VyZGF0
 YSgiaTE2IiwzMgMALyIwAQD--------------------78QgiKSxoaWRkZW49ZmFsc2UscGFuX3g9
 MAgA0nk9MCx0aWxlX2g9MzIKABB3CgCAem9vbT0xfX0=
 :: map/.info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDowNzo0MCIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+MS0yNCAwMDoyMToyMiIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
 :: sfx/
 :: sfx/0.sfx
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ5Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDowNzo0MCIscmV2aXNpb249MTEzMF1dbHo0ABIBAADCCQAA8CdweHUAAygAAAQABA9A
+MS0yNCAwMDoyMToyMiIscmV2aXNpb249MTE2OV1dbHo0ABIBAADCCQAA8CdweHUAAygAAAQABA9A
 EAIOAAGgASACoA4ADxAADfDKAQIDBAUGBwAP-5AICQoLDwwPDQ8ODw8QAPAADQ8RDxIPEw8UDxUP
 Fg8XEwDxAQ8YDxkPGg8bDxwPHQ8eDx8UAPEAIA8hDyIPIw8kDyUPJg8nFADxACgPKQ8qDysPLA8t
 Dy4PLxQA8QAwDzEPMg8zDzQPNQ82DzcUAP8FOA85DzoPOw88Dz0PPg8-AA--8P8BAOv-J1oBEAYP
@@ -34,9 +34,9 @@ IBABIAEgAfAAAhACDBABIA8hIAEwD0Dwww8oD--wxg-4Cg--D4AP9w8NAfAJARAGDDAA--_6H-8B
 AMy-6A9AAA1A--_w8HAKAP--ZB--AQD-mVD-----IA==
 :: sfx/.info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDowNzo0MCIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+MS0yNCAwMDoyMToyMiIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
 :: card.lua
---[[pod_format="raw",created="2024-11-18 15:42:45",modified="2024-11-24 00:07:40",revision=1310]]
+--[[pod_format="raw",created="2024-11-18 15:42:45",modified="2024-11-24 00:21:22",revision=1349]]
 include "constants.lua"
 include "math.lua"
 
@@ -122,7 +122,7 @@ function card_moveToStack(self, stack)
 	self.target = stack
 end
 :: constants.lua
---[[pod_format="raw",created="2024-11-22 15:57:20",modified="2024-11-24 00:07:40",revision=883]]
+--[[pod_format="raw",created="2024-11-22 15:57:20",modified="2024-11-24 00:21:22",revision=922]]
 dt=1/60
 sw, sh = 480, 270
 debug=nil
@@ -318,7 +318,7 @@ NLgH812S9HWmrlzTUs3qjT5n0DQADRf0YXU6GS7amqnt_ig405pUcLZdH-PZOV3NWlMLvqvI0f5s
 HxmPvPQ5g6MBuD--C3n4In4tSALrAAAAEHRFWHRMb2RlUE5HADIwMTEwMjIx41m2wQAAAABJRU5E
 rkJggg==
 :: main.lua
---[[pod_format="raw",created="2024-11-18 13:27:48",modified="2024-11-24 00:07:40",revision=1344]]
+--[[pod_format="raw",created="2024-11-18 13:27:48",modified="2024-11-24 00:21:22",revision=1389]]
 include "constants.lua"
 include "card.lua"
 include "stack.lua"
@@ -326,26 +326,34 @@ include "stack.lua"
 sx,sy = 480,270
 
 function _init()
+	stacks = {}
 	robotcards = {}
---	local models = {card_mod_siren, card_mod_stock, card_mod_cyclo, card_mod_plan, card_mod_cmd}
---	for m=1,5 do
---		for s=1,5 do
---			for v=1,2 do
---				add(robotcards, make_card(vec(rnd(sw),rnd(sh)), models[m], s))
---			end
---		end
---	end
+	function register_new_stack(pos, stack_table) 
+		local s = make_stack(pos, {})
+		if stack_table then add(stack_table, s) end
+		add(stacks, s)
+		return s
+	end
+	
+	local models = {card_mod_siren, card_mod_stock, card_mod_cyclo, card_mod_plan, card_mod_cmd}
+	for m=1,5 do
+		for s=1,5 do
+			for v=1,2 do
+				add(robotcards, make_card(vec(rnd(sw),rnd(sh)), models[m], s))
+			end
+		end
+	end
 	factory = {}
-	for i=1,5 do add(factory, make_stack(vec(70+i*60, 5), {})) end
+	for i=1,5 do register_new_stack(vec(70+i*60, 5), factory) end
 
-	robopile = make_stack(vec(60, 135), {})
-	discard = make_stack(vec(5,135), {})
+	robopile = register_new_stack(vec(60, 135))
+	discard = register_new_stack(vec(5,135))
 	flash = {}
-	for i=1,5 do add(flash, make_stack(vec(70+i*60, 70), {})) end
+	for i=1,5 do register_new_stack(vec(70+i*60, 70), flash) end
 	platform = {}
-	for i=1,5 do add(platform, make_stack(vec(70+i*60, 135), {})) end
+	for i=1,5 do register_new_stack(vec(70+i*60, 135), platform) end
 	stock = {}
-	for i=1,5 do add(platform, make_stack(vec(70+i*60, 200), {})) end
+	for i=1,5 do register_new_stack(vec(70+i*60, 200), stock) end
 	
 	card_held = nil
 end
@@ -367,17 +375,12 @@ function _update()
 	end
 	if (card_held) moveback(robotcards,card_held)
 	
-	robopile:update(mx,my,mb,card_held)
+	for s in all(stacks) do s:update(mx,my,mb,card_held) end
 end
 
 function _draw()
 	cls(0)
-	robopile:draw()
-	discard:draw()
-	for f in all(factory) do f:draw() end
-	for f in all(flash) do f:draw() end
-	for p in all(platform) do p:draw() end
-	for s in all(stock) do s:draw() end
+	for s in all(stacks) do s:draw(mx,my,mb,card_held) end
 
 	for c in all(robotcards) do
 		c:draw()
@@ -385,7 +388,7 @@ function _draw()
 	if (debug) ?debug
 end
 :: math.lua
---[[pod_format="raw",created="2024-11-22 16:00:14",modified="2024-11-24 00:07:40",revision=912]]
+--[[pod_format="raw",created="2024-11-22 16:00:14",modified="2024-11-24 00:21:22",revision=951]]
 include "constants.lua"
 
 function clamp(v, minv, maxv)
@@ -410,7 +413,7 @@ function spring(pos,target,stiff)
 	return target + newdelta
 end
 :: stack.lua
---[[pod_format="raw",created="2024-11-22 20:22:38",modified="2024-11-24 00:07:40",revision=649]]
+--[[pod_format="raw",created="2024-11-22 20:22:38",modified="2024-11-24 00:21:22",revision=688]]
 function make_stack(init_pos, cards)
 	return {
 		-- members
@@ -451,8 +454,8 @@ function stack_isCardIntersecting(self, card)
 end
 :: .info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTIyIDEzOjU5OjMzIixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDowNzo0MCIscnVudGltZT0xMixzdG9yZWQ9IjIwMjQtMTEtMjIgMTM6NTY6MjAiLHdv
-cmtzcGFjZXM9e3tsb2NhdGlvbj0ibWFpbi5sdWEjNTAiLHdvcmtzcGFjZV9pbmRleD0xfSx7bG9j
+MS0yNCAwMDoyMToyMiIscnVudGltZT0xMixzdG9yZWQ9IjIwMjQtMTEtMjIgMTM6NTY6MjAiLHdv
+cmtzcGFjZXM9e3tsb2NhdGlvbj0ibWFpbi5sdWEjNTUiLHdvcmtzcGFjZV9pbmRleD0xfSx7bG9j
 YXRpb249ImNhcmQubHVhIzUiLHdvcmtzcGFjZV9pbmRleD0xfSx7bG9jYXRpb249InN0YWNrLmx1
 YSMyNCIsd29ya3NwYWNlX2luZGV4PTF9LHtsb2NhdGlvbj0iY29uc3RhbnRzLmx1YSMxMSIsd29y
 a3NwYWNlX2luZGV4PTF9LHtsb2NhdGlvbj0ibWF0aC5sdWEjMjIiLHdvcmtzcGFjZV9pbmRleD0x
