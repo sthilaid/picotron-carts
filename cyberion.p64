@@ -4,29 +4,36 @@ version 2
 :: gfx/
 :: gfx/0.gfx
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDoyMToyMiIscmV2aXNpb249MTIwMl1dbHo0AFMBAABlNAAA8B17WzBdPXtibXA9cHh1
+MS0yNSAyMTozODo1OSIscmV2aXNpb249MTc5MV1dbHo0AOoCAAAfOAAA8B17WzBdPXtibXA9cHh1
 AEMgICAE8D4n8AsXJRfwCAdlB-AEJ4Un8AMHhQfwBg8AEAcFAPMxCCcFJ-ALBwUH8AlHBTfwBCd1
 J-ABF8UX0Af1AQewB4UHhQegB3UXhQeQByUHVQdVByUHgAcVBwAHRQdFBwAHFQ4AMzUnNQ4AnQUH
 IAeFByAHBQwA8wQwB2UHMAcFB5AHQAdlB0AHkAcAFADzBgAH8ACH8LwsZmxhZ3M9MCxwYW5feAgA
-z3k9MCx6b29tPTl9LN0APJFlN3UHoAeVB3XdADU1N0XdADclB2XdAC8lN90AriZFJ90AP1UHNd0A
-rjAHFQffAAIIAAy_AQrhAAYOAA__AZ4_ZQel3QAPvgFrXxAQBPDwMQD---------------------
-------------------------------------------8TUG09OX19
+z3k9MCx6b29tPTZ9LN0APJFlN3UHoAeVB3XdADU1N0XdADclB2XdAC8lN90AriZFJ90AP1UHNd0A
+rjAHFQffAAIIAAy_AQrhAAYOAA__AZ4_ZQel3QAPvgFrXxAQBPDwMQALHzkxAFz0BTM9BP8Z-wZV
+-ho1DgUOJf4YFQ4FAgBW-hUlDgUCACj_Ew8AOSX_ER4AZw4FDhX_Dz4ABTcASwtFDgUCAD5l-gYq
+AAZaABwHWgAEYAA8DAUOAgBNNf4NFSgAPRAFDgIALv4QKAAtERUmAAvWAEcV-hIlbACHFMX_F7X_
+FEUTABoQMQAAEwAQC0wBDtcAHgYXAAQbAB0EiQAJHwAcAWQADMkAHgFAAAzZAB8AIwAOXw4F7gUO
+AgANJBXejAAKlAACEwE3Fc4VDgAHAgATHn4AE848AAQQAARWABAuEABqFb4lDjU_WADoBT4VDgUe
+Ba4VDiVuBQ4CACEVTkQAEa4OABF_DAAGAgARXhAAeJ4VDhV_BQ4CAKgVXiUOFZ4FDhWOMgADXABZ
+nhUOBY6AABB_QgBmJS4FjgUOAgADVABtfgVOBY4VLgBMBR4FHjAAQRUeJV4yAQcwAJAVjgVOBV4l
+DiV2AAQCABGOPgBH-gcFDicAADkAJP4HJgDPJY4lDiX_CJX_--846wMLHzNNBB4PMQD---------
+-----------------------------------------------------y9QbT05fX0=
 :: gfx/.info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDoyMToyMiIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+MS0yNSAyMTozODo1OSIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
 :: map/
 :: map/0.map
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDoyMToyMiIscmV2aXNpb249MTE3Ml1dbHo0AGgAAABYEAAA8Ah7e2JtcD11c2VyZGF0
+MS0yNSAyMTozODo1OSIscmV2aXNpb249MTc1Ml1dbHo0AGgAAABYEAAA8Ah7e2JtcD11c2VyZGF0
 YSgiaTE2IiwzMgMALyIwAQD--------------------78QgiKSxoaWRkZW49ZmFsc2UscGFuX3g9
 MAgA0nk9MCx0aWxlX2g9MzIKABB3CgCAem9vbT0xfX0=
 :: map/.info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDoyMToyMiIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+MS0yNSAyMTozODo1OSIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
 :: sfx/
 :: sfx/0.sfx
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ5Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDoyMToyMiIscmV2aXNpb249MTE2OV1dbHo0ABIBAADCCQAA8CdweHUAAygAAAQABA9A
+MS0yNSAyMTozODo1OSIscmV2aXNpb249MTc0Nl1dbHo0ABIBAADCCQAA8CdweHUAAygAAAQABA9A
 EAIOAAGgASACoA4ADxAADfDKAQIDBAUGBwAP-5AICQoLDwwPDQ8ODw8QAPAADQ8RDxIPEw8UDxUP
 Fg8XEwDxAQ8YDxkPGg8bDxwPHQ8eDx8UAPEAIA8hDyIPIw8kDyUPJg8nFADxACgPKQ8qDysPLA8t
 Dy4PLxQA8QAwDzEPMg8zDzQPNQ82DzcUAP8FOA85DzoPOw88Dz0PPg8-AA--8P8BAOv-J1oBEAYP
@@ -34,9 +41,9 @@ IBABIAEgAfAAAhACDBABIA8hIAEwD0Dwww8oD--wxg-4Cg--D4AP9w8NAfAJARAGDDAA--_6H-8B
 AMy-6A9AAA1A--_w8HAKAP--ZB--AQD-mVD-----IA==
 :: sfx/.info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Iixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDoyMToyMiIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
+MS0yNSAyMTozODo1OSIsc3RvcmVkPSIyMDI0LTExLTE4IDEzOjI3OjQ4Il1d
 :: card.lua
---[[pod_format="raw",created="2024-11-18 15:42:45",modified="2024-11-24 00:21:22",revision=1349]]
+--[[pod_format="raw",created="2024-11-18 15:42:45",modified="2024-11-25 21:38:59",revision=1970]]
 include "constants.lua"
 include "math.lua"
 
@@ -48,20 +55,33 @@ card_free=0
 card_grabbed=1
 card_stacked=2
 
--- card models
+-- card types
+card_type_robot=0
+card_type_machine=1
+
+-- card robot models
 card_mod_siren=1
 card_mod_stock=2
 card_mod_cyclo=3
 card_mod_plan=4
 card_mod_cmd=5
 
-function make_card(init_pos,model,size)
+function make_robotcard_data(model, size)
+	return {type=card_type_robot, model=model, size=size}
+end
+
+function make_machinecard_data()
+	return {type=card_type_machine}
+end
+
+function make_card(init_pos,typedata)
 	return {
 		-- members
 		pos=init_pos, 
 		state=card_free,
 		model=model,
-		size=size,
+		typedata=typedata,
+		isfaceup=false,
 		
 		-- methods
 		draw = card_draw,
@@ -69,6 +89,7 @@ function make_card(init_pos,model,size)
 		move = card_move,		
 		update = card_update,		
 		moveIntoStack = card_moveToStack,
+		changeState = function(self,s) self.state = s end,
 		is_free = function(self) return self.state == card_free end,
 		is_grabbed = function(self) return self.state == card_grabbed end,
 		is_stacked = function(self) return self.state == card_stacked end,
@@ -76,16 +97,33 @@ function make_card(init_pos,model,size)
 end
 
 function card_draw(self)
-	local mod_colors = {9,12,29,27,8}
-	local mod_colors_grabbed = {25,16,18,3,24}
-	local col = self:is_grabbed() and mod_colors_grabbed[self.model] or mod_colors[self.model]
-	rectfill(self.pos.x, self.pos.y, self.pos.x+cw, self.pos.y+ch, col)
-	spr(self.size-1, self.pos.x, self.pos.y)
+	function draw_robot()
+		assert(self.typedata != nil and self.typedata.type == card_type_robot)
+		local model, size = self.typedata.model, self.typedata.size
+		if not self.isfaceup then
+			spr(8, self.pos.x, self.pos.y)
+		else
+			local mod_colors = {9,12,29,27,8}
+			local mod_colors_grabbed = {25,16,18,3,24}
+			local col = self:is_grabbed() and mod_colors_grabbed[model] or mod_colors[model]
+			rectfill(self.pos.x, self.pos.y, self.pos.x+cw, self.pos.y+ch, col)
+			spr(size-1, self.pos.x, self.pos.y)
+		end		
+	end
+	function draw_machine()
+		rectfill(self.pos.x, self.pos.y, self.pos.x+cw, self.pos.y+ch, 0)
+		line(self.pos.x, self.pos.y, self.pos.x+cw, self.pos.y+ch, 0)
+	end
+	if self.typedata.type == card_type_robot then
+		draw_robot()
+	elseif self.typedata.type == card_type_machine then
+		draw_machine()
+	else assert(false, "unknown card type "..self.typedata.type)
+	end
 end
 
 function card_intersect_point(self, point)
-	return point.x > self.pos.x and point.x < self.pos.x+cw
-		and point.y > self.pos.y and point.y < self.pos.y+ch
+	return rectPointIntersect(self.pos.x, self.pos.y, self.pos.x+cw, self.pos.y+ch, point.x, point.y)
 end
 
 function card_move(self, dx, dy)
@@ -97,9 +135,10 @@ function card_update(self, mx, my, mb, allowUpdateOnPile, card_held)
 	local mpressed = mb & 0x1 == 1 -- left btn pressed
 	local canBeGrabbed = card_held == nil and (self:is_free() or allowUpdateOnPile and self:is_stacked())
 	if self:is_grabbed() and not mpressed then
-		self.state = card_free
+		self:changeState(card_free)
 	elseif canBeGrabbed and mpressed and self:intersect_point(vec(mx, my)) then
-		self.state = card_grabbed
+		self:changeState(card_grabbed)
+		self.isfaceup = true
 		self.target = nil
 	end
 	if self:is_grabbed() then
@@ -109,8 +148,8 @@ function card_update(self, mx, my, mb, allowUpdateOnPile, card_held)
 		if self.pos:distance(self.target.pos) < 2 then
 			self.pos = self.target.pos*1
 			add(self.target.cards, self)
+			self.target:stackCard(self)
 			self.target = nil
-			self.state = card_stacked
 		else
 			local mv = spring(self.pos, self.target.pos, 5) - self.pos
 			self:move(mv.x, mv.y)
@@ -122,23 +161,12 @@ function card_moveToStack(self, stack)
 	self.target = stack
 end
 :: constants.lua
---[[pod_format="raw",created="2024-11-22 15:57:20",modified="2024-11-24 00:21:22",revision=922]]
+--[[pod_format="raw",created="2024-11-22 15:57:20",modified="2024-11-25 21:38:59",revision=1500]]
 dt=1/60
 sw, sh = 480, 270
 debug=nil
 
-function moveback(t,o)
-	local pushing_back = false
-	for i=1,#t do
-		if t[i] == o then
-			pushing_back = true
-		end
-		if pushing_back and i < #t then
-			t[i] = t[i+1]
-		end
-	end
-	t[#t] = o
-end
+
 :: label.png
 b64$iVBORw0KGgoAAAANSUhEUgAAAeAAAAEOCAIAAADe_FMwAAAm3ElEQVR4Ae2dPa-iTJr3LyPu
 gIgQkh2pw2a-wSRIp0kbqecEJ7jVepxgyxppg-0cjyYboSqSutXagOBsS_6URnIy32B8wvvRTALB
@@ -318,8 +346,9 @@ NLgH812S9HWmrlzTUs3qjT5n0DQADRf0YXU6GS7amqnt_ig405pUcLZdH-PZOV3NWlMLvqvI0f5s
 HxmPvPQ5g6MBuD--C3n4In4tSALrAAAAEHRFWHRMb2RlUE5HADIwMTEwMjIx41m2wQAAAABJRU5E
 rkJggg==
 :: main.lua
---[[pod_format="raw",created="2024-11-18 13:27:48",modified="2024-11-24 00:21:22",revision=1389]]
+--[[pod_format="raw",created="2024-11-18 13:27:48",modified="2024-11-25 21:38:59",revision=2052]]
 include "constants.lua"
+include "utils.lua"
 include "card.lua"
 include "stack.lua"
 
@@ -328,8 +357,8 @@ sx,sy = 480,270
 function _init()
 	stacks = {}
 	robotcards = {}
-	function register_new_stack(pos, stack_table) 
-		local s = make_stack(pos, {})
+	function register_new_stack(pos, limit, isfaceup, allowed_type, stack_table, cards) 
+		local s = make_stack(pos, limit or 1, isfaceup, allowed_type, cards or {})
 		if stack_table then add(stack_table, s) end
 		add(stacks, s)
 		return s
@@ -339,21 +368,28 @@ function _init()
 	for m=1,5 do
 		for s=1,5 do
 			for v=1,2 do
-				add(robotcards, make_card(vec(rnd(sw),rnd(sh)), models[m], s))
+				add(robotcards, make_card(vec(rnd(sw),rnd(sh)), make_robotcard_data(models[m], s)))
 			end
 		end
 	end
-	factory = {}
-	for i=1,5 do register_new_stack(vec(70+i*60, 5), factory) end
+	shuffle(robotcards,1000)
 
-	robopile = register_new_stack(vec(60, 135))
-	discard = register_new_stack(vec(5,135))
+	robopile = register_new_stack(vec(60, 135), #robotcards, false, card_type_robot, nil, robotcards)
+	discard = register_new_stack(vec(5,135), #robotcards, true, card_type_robot)
+	
+	factory = {}
+	for i=1,5 do register_new_stack(vec(70+i*60, 5), 1, false, card_type_machine, factory) end
+
+	-- need to create factory cards and add them to the machinedeck
+	machinedeck = register_new_stack(vec(60, 5), 1, false, card_type_machine)
+	xpdeck = register_new_stack(vec(5, 5), 1, true, card_type_machine)
+
 	flash = {}
-	for i=1,5 do register_new_stack(vec(70+i*60, 70), flash) end
+	for i=1,5 do register_new_stack(vec(70+i*60, 70), 1, true, card_type_robot, flash) end
 	platform = {}
-	for i=1,5 do register_new_stack(vec(70+i*60, 135), platform) end
+	for i=1,5 do register_new_stack(vec(70+i*60, 135), 1, true, card_type_robot, platform) end
 	stock = {}
-	for i=1,5 do register_new_stack(vec(70+i*60, 200), stock) end
+	for i=1,5 do register_new_stack(vec(70+i*60, 200), 1, true, card_type_robot, stock) end
 	
 	card_held = nil
 end
@@ -364,11 +400,17 @@ function _update()
 		local c = robotcards[c_index]
 		local was_held = card_held == c
 		c:update(mx,my,mb,false,card_held)
-		if c:is_free() then
-			if was_held then card_held = nil end
-			if robopile:isCardIntersecting(c) then
-				c:moveIntoStack(robopile)
+		if c:is_free() and was_held then
+			card_held = nil
+			for s in all(stacks) do
+				if s:canAcceptCard(c) and s:isPointIntersecting(vec(mx,my)) then
+					c:moveIntoStack(s)
+				end
 			end
+--			if robopile:isPointIntersecting(vec(mx,my)) then
+----			if robopile:isCardIntersecting(c) then
+--				c:moveIntoStack(robopile)
+--			end
 		elseif c:is_grabbed() then
 			card_held = c
 		end
@@ -378,8 +420,9 @@ function _update()
 	for s in all(stacks) do s:update(mx,my,mb,card_held) end
 end
 
+
 function _draw()
-	cls(0)
+	cls(31)
 	for s in all(stacks) do s:draw(mx,my,mb,card_held) end
 
 	for c in all(robotcards) do
@@ -388,18 +431,19 @@ function _draw()
 	if (debug) ?debug
 end
 :: math.lua
---[[pod_format="raw",created="2024-11-22 16:00:14",modified="2024-11-24 00:21:22",revision=951]]
+--[[pod_format="raw",created="2024-11-22 16:00:14",modified="2024-11-25 21:38:59",revision=1536]]
 include "constants.lua"
 
 function clamp(v, minv, maxv)
 	return max(minv, min(v, maxv))
 end
 
-function expt(x)
+function expt(x,it_count)
 	local res = 1+x
 	local exp = x
 	local fact = 1
-	for i=2,10 do
+	local it_count = it_count or 5 -- default is not precise but fast
+	for i=2,it_count do
 		exp = exp*x
 		fact = fact*i
 		res += exp/fact
@@ -412,19 +456,49 @@ function spring(pos,target,stiff)
 	local newdelta = delta * expt(-stiff*dt)
 	return target + newdelta
 end
+
+function rectRectIntersect(r1min, r1max, r2min, r2max)
+	return r1min.x <= r2max.x and r1max.y >= r2min.x 
+	   and r1min.y <= r2max.y and r1max.y >= r2min.y
+end
+
+function rectPointIntersect(rminx, rminy, rmaxx, rmaxy, px, py)
+ return px <= rmaxx and px >= rminx 
+ 	 and py <= rmaxy and py >= rminy
+end
 :: stack.lua
---[[pod_format="raw",created="2024-11-22 20:22:38",modified="2024-11-24 00:21:22",revision=688]]
-function make_stack(init_pos, cards)
-	return {
+--[[pod_format="raw",created="2024-11-22 20:22:38",modified="2024-11-25 21:38:59",revision=1324]]
+function make_stack(init_pos, stack_limit, isfaceup, allowed_type, cards)
+	local has_cards = #cards > 0
+	local newstack = {
 		-- members
 		pos=init_pos,
-		cards=cards,
+		limit=stack_limit,
+		isfaceup = isfaceup,
+		allowed_type = allowed_type,
+		cards=shallow_clone(cards),
 
 		-- methods		
 		draw = stack_draw,
-		update = stack_update,		
+		update = stack_update,	
+		isFull = function(self) return #self.cards	>= self.limit end,
+		canAcceptCard = stack_canAcceptCard,
+		stackCard = stack_stackCard,
 		isCardIntersecting = stack_isCardIntersecting,
+		isPointIntersecting = stack_isPointIntersecting,
 	}
+	for c in all(cards) do newstack:stackCard(c) end
+	return newstack
+end
+
+function stack_stackCard(self, c)
+	c.pos = self.pos*1
+	c:changeState(card_stacked)
+	c.isfaceup = self.isfaceup	
+end
+
+function stack_canAcceptCard(self, c) 
+	return not self:isFull() and c.typedata.type == self.allowed_type
 end
 
 function stack_draw(self)
@@ -446,20 +520,59 @@ function stack_update(self,mx,my,mb,card_held)
 end
 
 function stack_isCardIntersecting(self, card)
-	local x1,y1 = self.pos.x, self.pos.y
-	local x2,y2 = x1+cw, y1+ch
-	local cx1, cy1 = card.pos.x, card.pos.y
-	local cx2, cy2 = cx1+cw, cy1+ch
-	return x1<=cx2 and x2>=cx1 and y1<=cy2 and y2>=cy1
+	return rectRectIntersect(self.pos, self.pos+cardsize, card.pos, card.pos+cardsize)
+end
+
+function stack_isPointIntersecting(self, p)
+	return rectPointIntersect(self.pos.x, self.pos.y, self.pos.x+cw, self.pos.y+ch, p.x, p.y)
+end
+:: utils.lua
+--[[pod_format="raw",created="2024-11-25 15:03:12",modified="2024-11-25 21:38:59",revision=486]]
+function moveback(t,o)
+	local pushing_back = false
+	for i=1,#t do
+		if t[i] == o then
+			pushing_back = true
+		end
+		if pushing_back and i < #t then
+			t[i] = t[i+1]
+		end
+	end
+	t[#t] = o
+end
+
+function first(t,n)
+	local i=1
+	return function ()
+		if (i > n) return nil
+		local v = t[i]
+		i += 1
+		return v
+	end
+end
+
+function shallow_clone(t)
+	local newt = {}
+	for k,v in pairs(t) do
+		newt[k]=v
+	end
+	return newt
+end
+
+function shuffle(t,n)
+	for it=0,(n or 50) do
+		local i,j = flr(rnd(#t))+1, flr(rnd(#t))+1
+		t[i], t[j] = t[j], t[i]
+	end
 end
 :: .info.pod
 b64$LS1bW3BvZCxjcmVhdGVkPSIyMDI0LTExLTIyIDEzOjU5OjMzIixtb2RpZmllZD0iMjAyNC0x
-MS0yNCAwMDoyMToyMiIscnVudGltZT0xMixzdG9yZWQ9IjIwMjQtMTEtMjIgMTM6NTY6MjAiLHdv
-cmtzcGFjZXM9e3tsb2NhdGlvbj0ibWFpbi5sdWEjNTUiLHdvcmtzcGFjZV9pbmRleD0xfSx7bG9j
-YXRpb249ImNhcmQubHVhIzUiLHdvcmtzcGFjZV9pbmRleD0xfSx7bG9jYXRpb249InN0YWNrLmx1
-YSMyNCIsd29ya3NwYWNlX2luZGV4PTF9LHtsb2NhdGlvbj0iY29uc3RhbnRzLmx1YSMxMSIsd29y
-a3NwYWNlX2luZGV4PTF9LHtsb2NhdGlvbj0ibWF0aC5sdWEjMjIiLHdvcmtzcGFjZV9pbmRleD0x
-fSx7bG9jYXRpb249ImdmeC8wLmdmeCIsd29ya3NwYWNlX2luZGV4PTJ9LHtsb2NhdGlvbj0ibWFw
-LzAubWFwIix3b3Jrc3BhY2VfaW5kZXg9M30se2xvY2F0aW9uPSJzZngvMC5zZngiLHdvcmtzcGFj
-ZV9pbmRleD00fX1dXQ==
+MS0yNSAyMTozODo1OSIscnVudGltZT0xMixzdG9yZWQ9IjIwMjQtMTEtMjIgMTM6NTY6MjAiLHdv
+cmtzcGFjZXM9e3tsb2NhdGlvbj0ibWFpbi5sdWEjNTciLHdvcmtzcGFjZV9pbmRleD0xfSx7bG9j
+YXRpb249ImNhcmQubHVhIzczIix3b3Jrc3BhY2VfaW5kZXg9MX0se2xvY2F0aW9uPSJzdGFjay5s
+dWEjOCIsd29ya3NwYWNlX2luZGV4PTF9LHtsb2NhdGlvbj0iY29uc3RhbnRzLmx1YSM1Iix3b3Jr
+c3BhY2VfaW5kZXg9MX0se2xvY2F0aW9uPSJtYXRoLmx1YSMxMSIsd29ya3NwYWNlX2luZGV4PTF9
+LHtsb2NhdGlvbj0idXRpbHMubHVhIzM0Iix3b3Jrc3BhY2VfaW5kZXg9MX0se2xvY2F0aW9uPSJn
+ZngvMC5nZngiLHdvcmtzcGFjZV9pbmRleD0yfSx7bG9jYXRpb249Im1hcC8wLm1hcCIsd29ya3Nw
+YWNlX2luZGV4PTN9LHtsb2NhdGlvbj0ic2Z4LzAuc2Z4Iix3b3Jrc3BhY2VfaW5kZXg9NH19XV0=
 :: [eoc]
